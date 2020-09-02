@@ -1,3 +1,15 @@
 <body>
 	<p>Welcome to SrslyStudy!</p>
-</body>
+</body><br>
+<p>
+	<%= link_to 'Sign In', new_user_session_path, class: "button is-info" %>
+</p><br>
+<p>
+	<%= link_to 'Sign Up', new_user_registration_path, class: "button is-info" %>
+</p><br>
+<p>
+	<%= link_to 'Study', study_flashcards_path, class: "button is-info" %>
+</p><br>
+<p>
+	<%= link_to 'My Cards', flashcards_path, class: "button is-info" %>
+</p>

@@ -2,6 +2,7 @@ class FlashcardsController < ApplicationController
   before_action :set_flashcard, only: [:show, :edit, :update, :destroy]
 
 	def study
+		#
 	end
 
   # GET /flashcards
