@@ -1,0 +1,86 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Flashcards</h1>
+
+<table class="table is-striped is-hoverable table center">
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Meaning</th>
+      <th>Reading</th>
+      <th>Kunreading</th>
+      <th>Onreading</th>
+      <th>Syn</th>
+      <th>Tos</th>
+      <th>Meaningmem</th>
+      <th>Readingmem</th>
+      <th>Srslevel</th>
+      <th>Cardtype</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flashcards.each do |flashcard| %>
+      <tr>
+        <td><%= flashcard.data %></td>
+        <td><%= flashcard.meaning %></td>
+        <td><%= flashcard.reading %></td>
+        <td><%= flashcard.kunreading %></td>
+        <td><%= flashcard.onreading %></td>
+        <td><%= flashcard.syn %></td>
+        <td><%= flashcard.tos %></td>
+        <td><%= flashcard.meaningmem %></td>
+        <td><%= flashcard.readingmem %></td>
+        <td><%= flashcard.srslevel %></td>
+        <td><%= flashcard.cardtype %></td>
+        <td><%= flashcard.user_id %></td>
+        <td><%= link_to 'Show', flashcard %></td>
+        <td><%= link_to 'Edit', edit_flashcard_path(flashcard) %></td>
+        <td><%= link_to 'Destroy', flashcard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Flashcard', new_flashcard_path %>
+
+
+<!--
+
+General Idea:
+	- Start on homepage
+		> You have four(?) options:
+
+			- Sign-In
+				> Sent to sign in page
+					- back to homepage, two options:
+						> Study
+							- Sent to flashcards/study
+						> My Cards
+							- sent to flashcards/index
+
+			- Create Account
+				> Sent to register page
+					- back to homepage signed in
+
+			- Study Example Deck (Create simple example deck that is like elem. lvl)
+				> study deck for user id -1 (guest id) or something else idk
+
+			- Example Cards
+				> flashcards/index for example deck
+
+	- Flashcards index page
+		> all of that users flash cards; viewable, editable, and deletable
+
+	- Flashcards study page
+		> page with square card in center that has value (front of flashcard)
+			- prompts user to type meaning or reading
+		> TODO: maybe add another value that is a flag for whether or not a card
+						has been used the appropriate amount of times for meaning / reading
+						and for correct / incorrect resets
+						
+	-->

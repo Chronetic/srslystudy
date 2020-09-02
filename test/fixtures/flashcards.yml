@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: MyString
+  meaning: MyString
+  reading: MyString
+  kunreading: MyString
+  onreading: MyString
+  syn: MyText
+  tos: MyText
+  meaningmem: MyText
+  readingmem: MyText
+  srslevel: 1
+  cardtype: MyString
+  user_id: 1
+
+two:
+  data: MyString
+  meaning: MyString
+  reading: MyString
+  kunreading: MyString
+  onreading: MyString
+  syn: MyText
+  tos: MyText
+  meaningmem: MyText
+  readingmem: MyText
+  srslevel: 1
+  cardtype: MyString
+  user_id: 1

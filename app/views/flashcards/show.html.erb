@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @flashcard.data %>
+</p><br>
+
+<p>
+  <strong>Meaning:</strong>
+  <%= @flashcard.meaning %>
+</p><br>
+
+<p>
+  <strong>Reading:</strong>
+  <%= @flashcard.reading %>
+</p><br>
+
+<p>
+  <strong>Kunreading:</strong>
+  <%= @flashcard.kunreading %>
+</p><br>
+
+<p>
+  <strong>Onreading:</strong>
+  <%= @flashcard.onreading %>
+</p><br>
+
+<p>
+  <strong>Syn:</strong>
+  <%= @flashcard.syn %>
+</p><br>
+
+<p>
+  <strong>Tos:</strong>
+  <%= @flashcard.tos %>
+</p><br>
+
+<p>
+  <strong>Meaningmem:</strong>
+  <%= @flashcard.meaningmem %>
+</p><br>
+
+<p>
+  <strong>Readingmem:</strong>
+  <%= @flashcard.readingmem %>
+</p><br>
+
+<p>
+  <strong>Srslevel:</strong>
+  <%= @flashcard.srslevel %>
+</p><br>
+
+<p>
+  <strong>Cardtype:</strong>
+  <%= @flashcard.cardtype %>
+</p><br>
+
+<p>
+  <strong>User:</strong>
+  <%= @flashcard.user_id %>
+</p><br>
+
+<%= link_to 'Edit', edit_flashcard_path(@flashcard) %> |
+<%= link_to 'Back', flashcards_path %>
