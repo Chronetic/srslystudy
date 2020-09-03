@@ -47,11 +47,16 @@
 <br>
 
 <%= link_to 'New Flashcard', new_flashcard_path %>
+<div>
+	<%= link_to 'Back', "home", class: "button is-danger" %>
+</div>
 
 
 <!--
 
 TODO: add way for cards to be divided into learning session decks
+IDEA: put form inside loop, so the answer is sent back to the controller and then
+			the controller does the logic and updates the flashcard
 
 General Idea:
 	- Start on homepage

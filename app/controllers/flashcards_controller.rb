@@ -2,7 +2,41 @@ class FlashcardsController < ApplicationController
   before_action :set_flashcard, only: [:show, :edit, :update, :destroy]
 
 	def study
-		#
+		@@incrementer = 0
+		@flashcards = Flashcard.all
+		@currcard = @flashcards[@@incrementer]
+
+		if (params[:value] != nil)
+			@currcard = @flashcards[@@incrementer]
+			puts @@incrementer
+			puts @currcard.meaning
+			puts params[:value]
+
+			if @currcard.meaning.downcase == params[:value].downcase
+				@currcard.cardtype = "true"
+			else
+				@currcard.cardtype = "false"
+			end
+			@answered = true
+		else
+			puts "hello"
+		end
+
+	end
+
+	def is_correct
+
+	end
+
+	def fetch
+		@flashcards = Flashcard.all
+		@@incrementer+=1
+		@newcard = @flashcards[@@incrementer]
+		puts @@incrementer
+		respond_to do |format|
+			format.js
+		end
+		puts @newcard.meaning
 	end
 
   # GET /flashcards

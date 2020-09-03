@@ -1,0 +1,27 @@
+<div id="card">
+	<% if currcard.user_id == current_user.id %>
+		<div class="column has-text-centered">
+			<p><%= currcard.data %></p>
+			<p><%= puts currcard.data %></p>
+			<br>
+			<%= form_with url: "study", local: true, method: 'get' do |f| %>
+			<%= f.text_field :value, :class => "input", placeholder: "Meaning" %>
+			<p><br></p>
+			<%= f.submit "Check", :class => "button is-primary" %>
+			<% end %>
+
+			<div class="column has-text-centered">
+				<% if @answered %>
+					<% if currcard.cardtype == "true" %>
+					<p>Correct!</p>
+					<% currcard.cardtype = "false" %>
+					<% else %>
+					<p>False!</p>
+					<% end %>
+					<% @answered = false %>
+					<%= link_to "Next", fetch_card_path, :remote => true %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>

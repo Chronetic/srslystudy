@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 		end
 	end
 
+	get "/fetch_card" => 'flashcards#fetch', as: 'fetch_card'
+	get "/is_correct" => 'flashcards#is_correct', as: 'is_correct'
+
 	controller :pages do
 		get :home
 		get :about
