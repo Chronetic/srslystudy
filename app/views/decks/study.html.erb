@@ -1,1 +1,13 @@
 <p><%= @deck.title %></p>
+<p>Index: <%= @cardindex %></p>
+<% index = @cardindex %>
+<% puts index %>
+<p><%= @deck.cards[@cardindex.to_i].data %></p>
+<p><%= @deck.cards[@cardindex.to_i].meaning %></p><br><br>
+
+<%= form_with url: is_correct_decks_path(@deck, :index => index), local: true, method: 'get' do |f| %>
+	<%= f.text_field :value, :class => "input", placeholder: "Meaning" %>
+	<%= f.text_field :value_index, :class => "input", value: index %>
+	<p><br></p>
+	<%= f.submit "Check", :class => "button is-primary" %>
+<% end %>

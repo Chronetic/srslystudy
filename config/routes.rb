@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	resources :decks do
 		collection do
 			get "/:id/study" => 'decks#study', as: 'study'
+			get "/:id/is_correct" => 'decks#is_correct', as: 'is_correct'
 		end
 	end
 

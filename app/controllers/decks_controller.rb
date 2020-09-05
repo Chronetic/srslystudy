@@ -1,5 +1,5 @@
 class DecksController < ApplicationController
-  before_action :set_deck, only: [:show, :edit, :update, :destroy, :study]
+  before_action :set_deck, only: [:show, :edit, :update, :destroy, :study, :is_correct]
 
   # GET /decks
   # GET /decks.json
@@ -8,6 +8,33 @@ class DecksController < ApplicationController
   end
 
 	def study
+		@cardindex = params[:index]
+		puts "index: " + @cardindex
+	end
+
+	def is_correct
+		index = params[:value_index].to_i
+		puts "pIndex"
+		puts params[:value_index].to_i
+		#puts index
+
+		@deck.cards[index].answer = params[:value].to_s
+		puts params[:value]
+		puts "hello"
+		puts @deck.cards[index].answer
+		puts index
+		puts @deck.cards[index].meaning.to_s
+
+
+
+		respond_to do |format|
+      if @deck.cards[index].answer.to_s == @deck.cards[index].meaning.to_s
+        format.html { redirect_to study_decks_path(@deck, :index => index+1), notice: 'Correct!' }
+      else
+				puts index
+        format.html { redirect_to study_decks_path(@deck, :index => index), notice: 'Incorrect :(' }
+      end
+    end
 	end
 
   # GET /decks/1

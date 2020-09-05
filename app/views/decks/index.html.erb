@@ -20,7 +20,7 @@
         <td><%= deck.category %></td>
         <td><%= deck.user_id %></td>
         <td><%= deck.cards.all.size %></td>
-				<td><%= link_to 'Study', study_decks_path(deck) %></td>
+				<td><%= link_to 'Study', study_decks_path(deck, :index => 0) %></td>
         <td><%= link_to 'Show', deck %></td>
         <td><%= link_to 'Edit', edit_deck_path(deck) %></td>
         <td><%= link_to 'Destroy', deck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
