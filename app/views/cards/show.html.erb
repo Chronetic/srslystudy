@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @card.data %>
+</p>
+
+<p>
+  <strong>Meaning:</strong>
+  <%= @card.meaning %>
+</p>
+
+<p>
+  <strong>Reading:</strong>
+  <%= @card.reading %>
+</p>
+
+<p>
+  <strong>Kunreading:</strong>
+  <%= @card.kunreading %>
+</p>
+
+<p>
+  <strong>Onreading:</strong>
+  <%= @card.onreading %>
+</p>
+
+<p>
+  <strong>Syn:</strong>
+  <%= @card.syn %>
+</p>
+
+<p>
+  <strong>Tos:</strong>
+  <%= @card.tos %>
+</p>
+
+<p>
+  <strong>Meaningmem:</strong>
+  <%= @card.meaningmem %>
+</p>
+
+<p>
+  <strong>Readingmem:</strong>
+  <%= @card.readingmem %>
+</p>
+
+<p>
+  <strong>Srslevel:</strong>
+  <%= @card.srslevel %>
+</p>
+
+<p>
+  <strong>Cardtype:</strong>
+  <%= @card.cardtype %>
+</p>
+
+<p>
+  <strong>Card:</strong>
+  <%= @card.id %>
+</p>
+
+<p>
+  <strong>Deck:</strong>
+  <%= @card.deck_id %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @card.answer %>
+</p>
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>
+<%= link_to 'Home', "home", class: "button is-danger" %>

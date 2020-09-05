@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @deck.title %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @deck.category %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @deck.user_id %>
+</p>
+
+<p>
+  <strong>Cardcount:</strong>
+  <%= @deck.cardcount %>
+</p>
+
+<h1>Cards</h1>
+
+<table class="table is-striped is-hoverable table center">
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Meaning</th>
+      <th>Reading</th>
+      <th>Kunreading</th>
+      <th>Onreading</th>
+      <th>Syn</th>
+      <th>Tos</th>
+      <th>Meaningmem</th>
+      <th>Readingmem</th>
+      <th>Srslevel</th>
+      <th>Cardtype</th>
+      <th>Deck</th>
+      <th>Answer</th>
+			<th>Card_id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @deck.cards.each do |card| %>
+      <tr>
+        <td><%= card.data %></td>
+        <td><%= card.meaning %></td>
+        <td><%= card.reading %></td>
+        <td><%= card.kunreading %></td>
+        <td><%= card.onreading %></td>
+        <td><%= card.syn %></td>
+        <td><%= card.tos %></td>
+        <td><%= card.meaningmem %></td>
+        <td><%= card.readingmem %></td>
+        <td><%= card.srslevel %></td>
+        <td><%= card.cardtype %></td>
+        <td><%= card.deck_id %></td>
+        <td><%= card.answer %></td>
+				<td><%= card.id %></td>
+        <td><%= link_to 'Show', card %></td>
+        <td><%= link_to 'Edit', edit_card_path(card) %></td>
+        <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Card', new_card_path %>
+<%= link_to 'Edit', edit_deck_path(@deck) %> |
+<%= link_to 'Back', decks_path %>
+<%= link_to 'Home', root_path, class: "button is-danger" %>

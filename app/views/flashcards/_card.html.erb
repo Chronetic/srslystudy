@@ -4,11 +4,13 @@
 			<p><%= currcard.data %></p>
 			<p><%= puts currcard.data %></p>
 			<br>
-			<%= form_with url: "study", local: true, method: 'get' do |f| %>
+			<%= form_with url: is_correct_flashcards_path, local: true, method: 'get' do |f| %>
 			<%= f.text_field :value, :class => "input", placeholder: "Meaning" %>
 			<p><br></p>
 			<%= f.submit "Check", :class => "button is-primary" %>
 			<% end %>
+
+
 
 			<div class="column has-text-centered">
 				<% if @answered %>

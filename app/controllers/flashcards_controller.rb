@@ -6,25 +6,10 @@ class FlashcardsController < ApplicationController
 		@flashcards = Flashcard.all
 		@currcard = @flashcards[@@incrementer]
 
-		if (params[:value] != nil)
-			@currcard = @flashcards[@@incrementer]
-			puts @@incrementer
-			puts @currcard.meaning
-			puts params[:value]
-
-			if @currcard.meaning.downcase == params[:value].downcase
-				@currcard.cardtype = "true"
-			else
-				@currcard.cardtype = "false"
-			end
-			@answered = true
-		else
-			puts "hello"
-		end
-
 	end
 
 	def is_correct
+		@flashcards = Flashcard.all
 
 	end
 
@@ -75,7 +60,7 @@ class FlashcardsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /flashcards/1
+  # PATCH/PUT /flas:cardtype:cardtypehcards/1
   # PATCH/PUT /flashcards/1.json
   def update
     respond_to do |format|
@@ -107,6 +92,6 @@ class FlashcardsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flashcard_params
-      params.require(:flashcard).permit(:data, :meaning, :reading, :kunreading, :onreading, :syn, :tos, :meaningmem, :readingmem, :srslevel, :cardtype, :user_id)
+      params.require(:flashcard).permit(:data, :meaning, :reading, :kunreading, :onreading, :syn, :tos, :meaningmem, :readingmem, :srslevel, :cardtype, :card_id, :user_id)
     end
 end

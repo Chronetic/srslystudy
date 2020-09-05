@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@flashcard) do |f| %>
+<%= simple_form_for(@card) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -15,8 +15,8 @@
     <%= f.input :readingmem %>
     <%= f.input :srslevel %>
     <%= f.input :cardtype %>
-		<%= f.input :card_id %>
-    <%= f.input :user_id, :input_html => { :value => "#{current_user.id}" } %>
+    <%= f.association :deck %>
+    <%= f.input :answer %>
   </div>
 
   <div class="form-actions">

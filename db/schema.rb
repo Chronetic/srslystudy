@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_02_210757) do
+ActiveRecord::Schema.define(version: 2020_09_05_150241) do
+
+  create_table "cards", force: :cascade do |t|
+    t.string "data"
+    t.string "meaning"
+    t.string "reading"
+    t.string "kunreading"
+    t.string "onreading"
+    t.text "syn"
+    t.text "tos"
+    t.text "meaningmem"
+    t.text "readingmem"
+    t.integer "srslevel"
+    t.string "cardtype"
+    t.integer "deck_id", null: false
+    t.string "answer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deck_id"], name: "index_cards_on_deck_id"
+  end
+
+  create_table "decks", force: :cascade do |t|
+    t.string "title"
+    t.string "category"
+    t.integer "user_id", null: false
+    t.integer "cardcount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_decks_on_user_id"
+  end
 
   create_table "flashcards", force: :cascade do |t|
     t.string "data"
@@ -27,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_09_02_210757) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "card_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +71,6 @@ ActiveRecord::Schema.define(version: 2020_09_02_210757) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "decks"
+  add_foreign_key "decks", "users"
 end

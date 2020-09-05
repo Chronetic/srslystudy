@@ -1,0 +1,9 @@
+<head>
+	Study Page
+	<div>
+		<%= link_to 'Back', root_path, class: "button is-danger" %>
+	</div>
+</head>
+	<div id="newcard">
+		<%= render partial: 'card', locals: {currcard: @currcard} %>
+	</div>
