@@ -16,25 +16,25 @@ class DecksController < ApplicationController
 		index = params[:value_index].to_i
 		puts "pIndex"
 		puts params[:value_index].to_i
-		#puts index
+		puts "size " + @deck.cards.size.to_s
 
-		@deck.cards[index].answer = params[:value].to_s
-		puts params[:value]
-		puts "hello"
-		puts @deck.cards[index].answer
-		puts index
-		puts @deck.cards[index].meaning.to_s
+		if index < @deck.cards.size
+			@deck.cards[index].answer = params[:value].to_s
+			puts params[:value]
+			puts "hello"
+			puts @deck.cards[index].answer
+			puts index
+			puts @deck.cards[index].meaning.to_s
 
-
-
-		respond_to do |format|
-      if @deck.cards[index].answer.to_s == @deck.cards[index].meaning.to_s
-        format.html { redirect_to study_decks_path(@deck, :index => index+1), notice: 'Correct!' }
-      else
-				puts index
-        format.html { redirect_to study_decks_path(@deck, :index => index), notice: 'Incorrect :(' }
-      end
-    end
+			respond_to do |format|
+	      if @deck.cards[index].answer.to_s == @deck.cards[index].meaning.to_s
+	        format.html { redirect_to study_decks_path(@deck, :index => index+1), notice: 'Correct!' }
+	      else
+					puts index
+	        format.html { redirect_to study_decks_path(@deck, :index => index), notice: 'Incorrect :(' }
+	      end
+	    end
+		end
 	end
 
   # GET /decks/1
