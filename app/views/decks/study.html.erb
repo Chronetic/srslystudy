@@ -1,8 +1,9 @@
+<% index = @cardindex %>
+<% if index.to_i != -1 && index.to_i < @deck.cards.size %>
 <p><%= @deck.title %></p>
 <p>Index: <%= @cardindex %></p>
-<% index = @cardindex %>
 <% puts index %>
-<% if index.to_i < @deck.cards.size %>
+<p>hello:<%= @deck.cards[0].srslevel %></p>
 	<p><%= @deck.cards[@cardindex.to_i].data %></p>
 	<p><%= @deck.cards[@cardindex.to_i].meaning %></p><br><br>
 
@@ -13,6 +14,6 @@
 		<%= f.submit "Check", :class => "button is-primary" %>
 	<% end %>
 <% else %>
-	<p>End of Deck</p>
+	<p>No More Cards Ready</p>
 	<%= link_to 'Home', root_path, class: "button is-danger" %>
 <% end %>

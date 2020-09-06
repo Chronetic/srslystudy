@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:show, :edit, :update, :destroy]
-
+	require 'date'
   # GET /cards
   # GET /cards.json
   def index
@@ -19,12 +19,15 @@ class CardsController < ApplicationController
 
   # GET /cards/1/edit
   def edit
+		@card.cardtype = @card.created_at.to_date
+		@card.save
   end
 
   # POST /cards
   # POST /cards.json
   def create
     @card = Card.new(card_params)
+		@card.cardtype = Date.today
 
     respond_to do |format|
       if @card.save
